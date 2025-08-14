@@ -10,7 +10,7 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   // site: 'https://example.com',
   site: "https://towinok.github.io",
-  base: "astro-blog-ssg",
+  base: "/astro-blog-ssg",
   integrations: [mdx(), sitemap()],
 
   vite: {
