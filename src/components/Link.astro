@@ -1,0 +1,19 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+/**
+ * Link ->
+ * Component for:
+ *
+ * Wrapper for a link with addition base
+ *
+ * **note**: via env.BASE_URL
+ */
+
+type Props = HTMLAttributes<"a">;
+const { href, class: className, ...props } = Astro.props;
+---
+
+<a href={import.meta.env.BASE_URL + href} class={className} {...props}
+    ><slot /></a
+>

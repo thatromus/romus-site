@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "romus_site",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -16,5 +16,8 @@
     "astro": "^5.13.0",
     "sharp": "^0.34.2",
     "tailwindcss": "^4.1.12"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.16"
   }
 }

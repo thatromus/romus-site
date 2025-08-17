@@ -8,9 +8,14 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  // site: 'https://example.com',
+  // For ghp
+  ///
+  // site: "https://towinok.github.io",
+  // base: "/astro-blog-ssg",
+  ///
+  // dev
   site: "https://towinok.github.io",
-  base: "/astro-blog-ssg",
+  base: "/s",
   integrations: [mdx(), sitemap()],
 
   vite: {

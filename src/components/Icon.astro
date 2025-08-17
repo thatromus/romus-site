@@ -1,0 +1,22 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+/**
+ * Link ->
+ * Component for:
+ *
+ * Wrapper for a link
+ *
+ * **note**: via env.BASE_URL
+ */
+
+type Props = HTMLAttributes<"a"> & {
+    sr_text: string;
+};
+const { href, class: className, sr_text, ...props } = Astro.props;
+---
+
+<a href={href} class={className} {...props}>
+    <span class="sr-only">{sr_text}</span>
+    <slot /></a
+>

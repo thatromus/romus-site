@@ -1,49 +1,40 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import BaseHead from "@components/BaseHead.astro";
+import Header from "@components/Header.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "@consts";
+import { Image } from "astro:assets";
+import Avatar from "../assets/Avatar.png";
+import Logo from "@components/Logo.astro";
+import { Picture } from "astro:assets";
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+    <body>
+        <main
+            class="bg-main h-screen w-screen flex overflow-clip max-h-screen max-w-screen relative"
+        >
+            <Picture
+                formats={["webp"]}
+                src={Avatar}
+                alt=""
+                class="absolute bottom-0 lg:relative lg:scale-110 scale-200 md:scale-120 lg:translate-y-0 md:-translate-y-20 -translate-y-2/4 -translate-x-20 md:translate-x-0 saturate-70"
+            />
+            <div
+                class="z-2 lg:z-0 flex flex-col flex-1 items-center lg:items-end justify-end gap-6 lg:pb-20 lg:pr-20"
+            >
+                <Logo
+                    class="size-2/3 lg:size-1/1 h-fit pb-20 lg:pb-0 lg:h-full"
+                />
+                <div class="font-mono text-4xl text-white leading-0">
+                    [ ThatRomus ]
+                </div>
+
+                <button class="mt-20 p-4 bg-white text-black">About me</button>
+            </div>
+        </main>
+    </body>
 </html>
