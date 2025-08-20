@@ -19,9 +19,9 @@ const posts = (await getCollection("blog")).sort(
   </head>
   <body class="relative bg-black">
     <Header />
-    <main class="mx-auto max-w-5xl py-12">
+    <main class="mx-auto max-w-5xl lg:pb-12">
       <section>
-        <ul class="flex list-none flex-wrap gap-4 p-0 text-white md:gap-8">
+        <ul class="flex list-none flex-wrap gap-20 p-0 text-white md:gap-8">
           {
             posts.map((post, index) => (
               <li
@@ -39,6 +39,7 @@ const posts = (await getCollection("blog")).sort(
                 >
                   {post.data.heroImage && (
                     <Image
+                      loading={index > 2 ? "lazy" : "eager"}
                       width={720}
                       height={360}
                       src={post.data.heroImage}
@@ -65,7 +66,7 @@ const posts = (await getCollection("blog")).sort(
       </section>
     </main>
     <BareCode
-      class="text-accent absolute bottom-0 -z-100 mask-t-from-red-200 mask-t-to-90% mask-r-to-130% mask-l-to-130%"
+      class="text-accent absolute bottom-0 scale-y-200 mask-t-from-red-200 mask-t-to-90% mask-r-to-130% mask-l-to-130% lg:scale-100"
     />
   </body>
 </html>
