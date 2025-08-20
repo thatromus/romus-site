@@ -5,6 +5,7 @@ import BaseHead from "@components/BaseHead.astro";
 import FormattedDate from "@components/FormattedDate.astro";
 import Header from "@components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "@consts";
+import BareCode from "@components/BareCode.astro";
 
 const posts = (await getCollection("blog")).sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -16,11 +17,13 @@ const posts = (await getCollection("blog")).sort(
     <head>
         <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     </head>
-    <body>
+    <body class="relative bg-black">
         <Header />
-        <main class="mx-auto max-w-5xl py-12">
+        <main class="mx-auto max-w-5xl py-12 pt-20">
             <section>
-                <ul class="list-none p-0 flex flex-wrap gap-4 md:gap-8">
+                <ul
+                    class="list-none p-0 flex flex-wrap gap-4 md:gap-8 text-white"
+                >
                     {
                         posts.map((post, index) => (
                             <li
@@ -48,7 +51,7 @@ const posts = (await getCollection("blog")).sort(
                                     )}
                                     <h4
                                         class:list={[
-                                            "m-0 text-black leading-none transition duration-200 group-hover:text-accent",
+                                            "m-0   leading-none transition duration-200 group-hover:text-accent",
                                             index === 0
                                                 ? "text-2xl md:text-4xl"
                                                 : "text-2xl",
@@ -56,7 +59,7 @@ const posts = (await getCollection("blog")).sort(
                                     >
                                         {post.data.title}
                                     </h4>
-                                    <p class="m-0 text-gray transition duration-200 group-hover:text-accent">
+                                    <p class="m-0 text-gray transition duration-200 group-hover:text-accent text-gray-500">
                                         <FormattedDate
                                             date={post.data.pubDate}
                                         />
@@ -68,5 +71,8 @@ const posts = (await getCollection("blog")).sort(
                 </ul>
             </section>
         </main>
+        <BareCode
+            class="absolute bottom-0 mask-t-from-red-200 mask-t-to-90% mask-r-to-130% mask-l-to-130% text-accent -z-100"
+        />
     </body>
 </html>

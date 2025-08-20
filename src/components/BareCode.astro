@@ -1,0 +1,55 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+/**
+ * BareCode ->
+ * Component for:
+ *
+ * BareCode from figma
+ *
+ */
+
+type Props = HTMLAttributes<"svg">;
+const { class: className, ...props } = Astro.props;
+---
+
+<svg
+    class={className}
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 1440 484"
+    {...props}
+>
+    {
+        (() => {
+            let x = 0;
+            const rects = [];
+            while (x < 1440) {
+                const blackWidth = Math.floor(Math.random() * 8) + 3; // 3-10px
+                rects.push(
+                    <rect
+                        x={x}
+                        y={0}
+                        width={blackWidth}
+                        height="484"
+                        fill="currentColor"
+                    />,
+                );
+                x += blackWidth;
+
+                const transparentWidth = Math.floor(Math.random() * 12) + 2; // 2-8px
+                rects.push(
+                    <rect
+                        x={x}
+                        y={0}
+                        width={transparentWidth}
+                        height="484"
+                        fill="transparent"
+                    />,
+                );
+                x += transparentWidth;
+            }
+            return rects;
+        })()
+    }
+</svg>

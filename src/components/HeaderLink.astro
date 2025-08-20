@@ -21,12 +21,19 @@ const redirect = base + href;
 <a
     href={redirect}
     class:list={[
-        "h-full flex items-center justify-center border-b-2 text-sm lg:text-lg lg:w-22 w-12 text-center",
+        "relative h-full flex items-center justify-center px-4 border-b-2 text-sm lg:text-lg text-center transition-colors duration-300 ease-in-out overflow-hidden",
         className,
-        { "border-b-black hover:border-b-accent": !isActive },
-        { "font-bold border-b-accent": isActive },
+
+        // не активен → анимация заливки accent
+        {
+            "border-b-black hover:border-b-accent before:absolute before:bottom-0 before:left-0 before:w-full before:h-0 before:bg-accent before:z-0 before:transition-all before:duration-300 hover:before:h-full hover:text-white":
+                !isActive,
+        },
+
+        // активен → обычный стиль без анимации
+        { "font-bold border-b-accent bg-active-bg": isActive },
     ]}
     {...props}
 >
-    <slot />
+    <span class="relative z-10"><slot /></span>
 </a>

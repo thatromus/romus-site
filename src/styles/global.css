@@ -1,27 +1,17 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
-@font-face {
-    font-family: "Atkinson";
-    src: url("/s/fonts/atkinson-regular.woff") format("woff");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: "Atkinson";
-    src: url("/s/fonts/atkinson-bold.woff") format("woff");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Peta:wght@100..900&family=Rubik+Mono+One&display=swap");
 
 @theme {
     --font-display: "Atkinson", "sans-serif";
-    --color-accent: #2337ff;
-    --color-accent-dark: #000d8a;
+    --color-accent: #c02307;
 
+    --color-active-bg: #1b0b08;
     --color-main: #c02307;
-    --font-sans: "Atkinson", sans-serif;
-    --font-mono: "Atkinson Mono", monospace;
-    --font-serif: "Atkinson", serif;
+    --font-sans: "Lexend Peta", sans-serif;
+    --font-mono: "Rubik Mono One", monospace;
+    --font-serif: "Lexend Peta", serif;
+
+    --font-lexend: "Lexend Peta", sans-serif;
+    --font-rubik-mono: "Rubik Mono One", monospace;
 }
