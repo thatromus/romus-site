@@ -3,15 +3,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend+Peta:wght@100..900&family=Rubik+Mono+One&display=swap");
 
 @theme {
-    --font-display: "Atkinson", "sans-serif";
-    --color-accent: #c02307;
+  --font-display: "Atkinson", "sans-serif";
+  --color-accent: #c02307;
 
-    --color-active-bg: #1b0b08;
-    --color-main: #c02307;
-    --font-sans: "Lexend Peta", sans-serif;
-    --font-mono: "Rubik Mono One", monospace;
-    --font-serif: "Lexend Peta", serif;
+  --color-active-bg: #1b0b08;
+  --color-main: #c02307;
+  --font-sans: "Lexend Peta", sans-serif;
+  --font-mono: "Rubik Mono One", monospace;
+  --font-serif: "Lexend Peta", serif;
 
-    --font-lexend: "Lexend Peta", sans-serif;
-    --font-rubik-mono: "Rubik Mono One", monospace;
+  --font-lexend: "Lexend Peta", sans-serif;
+  --font-rubik-mono: "Rubik Mono One", monospace;
 }

@@ -8,71 +8,64 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "@consts";
 import BareCode from "@components/BareCode.astro";
 
 const posts = (await getCollection("blog")).sort(
-    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---
 
 <!doctype html>
 <html lang="en">
-    <head>
-        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    </head>
-    <body class="relative bg-black">
-        <Header />
-        <main class="mx-auto max-w-5xl py-12 pt-20">
-            <section>
-                <ul
-                    class="list-none p-0 flex flex-wrap gap-4 md:gap-8 text-white"
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="relative bg-black">
+    <Header />
+    <main class="mx-auto max-w-5xl py-12">
+      <section>
+        <ul class="flex list-none flex-wrap gap-4 p-0 text-white md:gap-8">
+          {
+            posts.map((post, index) => (
+              <li
+                class:list={[
+                  "w-full text-center",
+                  {
+                    "md:mb-4 md:w-full": index === 0,
+                    "md:w-[calc(50%-1rem)] md:text-left": index > 0,
+                  },
+                ]}
+              >
+                <a
+                  href={`${import.meta.env.BASE_URL}/blog/${post.id}/`}
+                  class="group block no-underline"
                 >
-                    {
-                        posts.map((post, index) => (
-                            <li
-                                class:list={[
-                                    "w-full text-center",
-                                    {
-                                        "md:w-full md:mb-4": index === 0,
-                                        "md:w-[calc(50%-1rem)] md:text-left":
-                                            index > 0,
-                                    },
-                                ]}
-                            >
-                                <a
-                                    href={`${import.meta.env.BASE_URL}/blog/${post.id}/`}
-                                    class="block no-underline group"
-                                >
-                                    {post.data.heroImage && (
-                                        <Image
-                                            width={720}
-                                            height={360}
-                                            src={post.data.heroImage}
-                                            alt=""
-                                            class="aspect-6/3 mb-2 rounded-xl w-full transition duration-200 ease-in-out group-hover:shadow-2xl group-hover:shadow-accent"
-                                        />
-                                    )}
-                                    <h4
-                                        class:list={[
-                                            "m-0   leading-none transition duration-200 group-hover:text-accent",
-                                            index === 0
-                                                ? "text-2xl md:text-4xl"
-                                                : "text-2xl",
-                                        ]}
-                                    >
-                                        {post.data.title}
-                                    </h4>
-                                    <p class="m-0 text-gray transition duration-200 group-hover:text-accent text-gray-500">
-                                        <FormattedDate
-                                            date={post.data.pubDate}
-                                        />
-                                    </p>
-                                </a>
-                            </li>
-                        ))
-                    }
-                </ul>
-            </section>
-        </main>
-        <BareCode
-            class="absolute bottom-0 mask-t-from-red-200 mask-t-to-90% mask-r-to-130% mask-l-to-130% text-accent -z-100"
-        />
-    </body>
+                  {post.data.heroImage && (
+                    <Image
+                      width={720}
+                      height={360}
+                      src={post.data.heroImage}
+                      alt=""
+                      class="group-hover:shadow-accent mb-2 aspect-6/3 w-full rounded-xl transition duration-200 ease-in-out group-hover:shadow-2xl"
+                    />
+                  )}
+                  <h4
+                    class:list={[
+                      "group-hover:text-accent m-0 leading-none transition duration-200",
+                      index === 0 ? "text-2xl md:text-4xl" : "text-2xl",
+                    ]}
+                  >
+                    {post.data.title}
+                  </h4>
+                  <p class="text-gray group-hover:text-accent m-0 text-gray-500 transition duration-200">
+                    <FormattedDate date={post.data.pubDate} />
+                  </p>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </main>
+    <BareCode
+      class="text-accent absolute bottom-0 -z-100 mask-t-from-red-200 mask-t-to-90% mask-r-to-130% mask-l-to-130%"
+    />
+  </body>
 </html>

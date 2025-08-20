@@ -11,33 +11,29 @@ import Link from "@components/Link.astro";
 
 <!doctype html>
 <html lang="en">
-    <head>
-        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    </head>
-    <body>
-        <main
-            class="bg-main h-screen w-screen flex overflow-clip max-h-screen max-w-screen relative py-12 lg:py-0"
-        >
-            <Picture
-                formats={["webp"]}
-                src={Avatar}
-                alt=""
-                class="lg:mask-r-from-68% lg:mask-t-from-100% mask-t-from-60% md:mask-l-from-60% lg:mask-l-from-100% mask-r-from-60% lg:z-3 absolute bottom-0 lg:scale-110 scale-200 md:scale-120 lg:translate-y-0 md:-translate-y-20 -translate-y-2/4 -translate-x-20 md:translate-x-0 saturate-60"
-            />
-            <div
-                class="z-2 flex flex-col flex-1 items-center lg:items-end justify-end gap-6 lg:pb-20 lg:pr-20"
-            >
-                <Logo
-                    class="size-2/3 h-fit pb-20 lg:pb-0 lg:h-full text-white"
-                />
-                <div class="font-bold text-4xl text-white leading-0">
-                    [ ThatRomus ]
-                </div>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="bg-main">
+    <main
+      class="relative flex h-screen max-h-screen w-screen max-w-screen overflow-clip py-20 lg:py-0"
+    >
+      <Picture
+        formats={["webp"]}
+        src={Avatar}
+        alt=""
+        class="absolute bottom-0 -translate-x-20 -translate-y-2/4 scale-200 mask-t-from-60% mask-r-from-60% saturate-60 md:translate-x-0 md:-translate-y-20 md:scale-120 md:mask-l-from-60% lg:z-3 lg:translate-y-0 lg:scale-110 lg:mask-t-from-100% lg:mask-r-from-68% lg:mask-l-from-100%"
+      />
+      <div
+        class="z-2 flex flex-1 flex-col items-center justify-end gap-6 lg:items-end lg:pr-20 lg:pb-20"
+      >
+        <Logo class="size-2/3 h-fit pb-20 text-white lg:h-full lg:pb-0" />
+        <div class="text-4xl leading-0 font-bold text-white">[ ThatRomus ]</div>
 
-                <Link href="/about" class="cursor-default">
-                    <Button class="mt-20">About me</Button>
-                </Link>
-            </div>
-        </main>
-    </body>
+        <Link href="/about" class="cursor-default">
+          <Button class="mt-20">About me</Button>
+        </Link>
+      </div>
+    </main>
+  </body>
 </html>

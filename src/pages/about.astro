@@ -5,11 +5,11 @@ import { getEntry, render } from "astro:content";
 const layout = await getEntry("about", "cc");
 
 if (!layout) {
-    throw new Error("Запись about не найдена!");
+  throw new Error("Запись about не найдена!");
 }
 const { Content } = await render(layout);
 ---
 
 <About {...layout.data}>
-    <Content />
+  <Content />
 </About>

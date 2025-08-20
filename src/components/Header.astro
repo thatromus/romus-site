@@ -8,104 +8,101 @@ import Logo from "@components/Logo.astro";
 ---
 
 <header
-    class="px-4 text-white bg-black shadow-md fixed top-0 left-0 w-full z-50"
+  class="sticky top-0 z-50 mb-12 w-full bg-black px-4 text-white shadow-md"
 >
-    <nav class="flex justify-between items-center h-20">
-        <!-- Лого -->
-        <Link
-            href="/"
-            class="no-underline flex text-2xl items-center text-accent"
-        >
-            <Logo class="w-16 h-12" />
-        </Link>
+  <nav class="flex h-20 items-center justify-between">
+    <!-- Лого -->
+    <Link href="/" class="text-accent flex items-center text-2xl no-underline">
+      <Logo class="h-12 w-16" />
+    </Link>
 
-        <!-- Десктопные ссылки -->
-        <div class="hidden md:flex items-center justify-center gap-6 h-full">
-            <HeaderLink href="/">Main</HeaderLink>
-            <HeaderLink href="/blog">Portfolio</HeaderLink>
-            <HeaderLink href="/about">About me</HeaderLink>
-        </div>
-
-        <!-- Соцсети на десктопе -->
-        <div class="hidden md:flex items-center justify-end gap-4">
-            <ArtStationLogo href="/" />
-            <BehanceLogo href="/" />
-        </div>
-
-        <!-- Бургер на мобиле -->
-        <div class="md:hidden">
-            <button
-                id="menu-btn"
-                class="flex flex-col gap-1.5 p-2 focus:outline-none"
-                aria-label="Toggle menu"
-            >
-                <span class="w-6 h-0.5 bg-white"></span>
-                <span class="w-6 h-0.5 bg-white"></span>
-                <span class="w-6 h-0.5 bg-white"></span>
-            </button>
-        </div>
-    </nav>
-
-    <!-- Off-canvas меню -->
-    <div
-        id="mobile-menu"
-        class="fixed top-0 right-0 h-full w-64 bg-black text-white transform translate-x-full transition-transform duration-300 ease-in-out z-50 flex flex-col gap-6 p-6 md:hidden"
-    >
-        <!-- Кнопка закрытия -->
-        <button
-            id="close-menu"
-            class="self-end text-2xl font-bold focus:outline-none"
-        >
-            ✕
-        </button>
-
-        <!-- Навигация -->
-        <HeaderLink href="/">Main</HeaderLink>
-        <HeaderLink href="/blog">Portfolio</HeaderLink>
-        <HeaderLink href="/about">About me</HeaderLink>
-
-        <!-- Соцсети -->
-        <div class="flex gap-6 mt-auto justify-center items-center py-4">
-            <ArtStationLogo href="/" />
-            <BehanceLogo href="/" />
-        </div>
+    <!-- Десктопные ссылки -->
+    <div class="hidden h-full items-center justify-center gap-6 md:flex">
+      <HeaderLink href="/">Main</HeaderLink>
+      <HeaderLink href="/blog">Portfolio</HeaderLink>
+      <HeaderLink href="/about">About me</HeaderLink>
     </div>
 
-    <!-- Подложка -->
-    <div
-        id="menu-overlay"
-        class="fixed inset-0 bg-black bg-opacity-50 hidden z-40 md:hidden"
-    >
+    <!-- Соцсети на десктопе -->
+    <div class="hidden items-center justify-end gap-4 md:flex">
+      <ArtStationLogo href="/" />
+      <BehanceLogo href="/" />
     </div>
+
+    <!-- Бургер на мобиле -->
+    <div class="md:hidden">
+      <button
+        id="menu-btn"
+        class="flex flex-col gap-1.5 p-2 focus:outline-none"
+        aria-label="Toggle menu"
+      >
+        <span class="h-0.5 w-6 bg-white"></span>
+        <span class="h-0.5 w-6 bg-white"></span>
+        <span class="h-0.5 w-6 bg-white"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Off-canvas меню -->
+  <div
+    id="mobile-menu"
+    class="fixed top-0 right-0 z-50 flex h-full w-64 translate-x-full transform flex-col gap-6 bg-black p-6 text-white transition-transform duration-300 ease-in-out md:hidden"
+  >
+    <!-- Кнопка закрытия -->
+    <button
+      id="close-menu"
+      class="self-end text-2xl font-bold focus:outline-none"
+    >
+      ✕
+    </button>
+
+    <!-- Навигация -->
+    <HeaderLink href="/">Main</HeaderLink>
+    <HeaderLink href="/blog">Portfolio</HeaderLink>
+    <HeaderLink href="/about">About me</HeaderLink>
+
+    <!-- Соцсети -->
+    <div class="mt-auto flex items-center justify-center gap-6 py-4">
+      <ArtStationLogo href="/" />
+      <BehanceLogo href="/" />
+    </div>
+  </div>
+
+  <!-- Подложка -->
+  <div
+    id="menu-overlay"
+    class="bg-opacity-50 fixed inset-0 z-40 hidden bg-black md:hidden"
+  >
+  </div>
 </header>
 
 <script is:inline>
-    const btn = document.getElementById("menu-btn");
-    const closeBtn = document.getElementById("close-menu");
-    const menu = document.getElementById("mobile-menu");
-    const overlay = document.getElementById("menu-overlay");
+  const btn = document.getElementById("menu-btn");
+  const closeBtn = document.getElementById("close-menu");
+  const menu = document.getElementById("mobile-menu");
+  const overlay = document.getElementById("menu-overlay");
 
-    console.log("[TRACE] init header script");
+  console.log("[TRACE] init header script");
 
-    function openMenu() {
-        menu.classList.remove("translate-x-full");
-        overlay.classList.remove("hidden");
-    }
+  function openMenu() {
+    menu.classList.remove("translate-x-full");
+    overlay.classList.remove("hidden");
+  }
 
-    function closeMenu() {
-        menu.classList.add("translate-x-full");
-        overlay.classList.add("hidden");
-    }
+  function closeMenu() {
+    menu.classList.add("translate-x-full");
+    overlay.classList.add("hidden");
+  }
 
-    btn?.addEventListener("click", () => {
-        openMenu();
-    });
+  btn?.addEventListener("click", () => {
+    openMenu();
+  });
 
-    closeBtn?.addEventListener("click", () => {
-        closeMenu();
-    });
+  closeBtn?.addEventListener("click", () => {
+    closeMenu();
+  });
 
-    overlay?.addEventListener("click", () => {
-        closeMenu();
-    });
+  overlay?.addEventListener("click", () => {
+    closeMenu();
+  });
 </script>
