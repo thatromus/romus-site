@@ -1,0 +1,76 @@
+---
+import Button from "./Button.astro";
+---
+
+<section
+  class="embla shadow-accent relative mb-2 aspect-6/3 w-full overflow-clip rounded-xl shadow-2xl transition duration-200 ease-in-out"
+>
+  <div class="embla__viewport">
+    <div class="embla__container">
+      <slot />
+    </div>
+  </div>
+
+  <div
+    class="pointer-events-none absolute top-1/2 flex w-full items-center justify-between px-12"
+  >
+    <Button
+      class="embla__button--prev from-accent pointer-events-auto bg-gradient-to-l to-white p-0.5 md:p-2"
+      direction="left"
+    >
+      {"<"}
+    </Button>
+
+    <Button
+      direction="right"
+      class="embla__button--next from-accent pointer-events-auto bg-gradient-to-r to-white p-0.5 md:p-2"
+    >
+      {">"}
+    </Button>
+  </div>
+</section>
+
+<script>
+  import EmblaCarousel, {
+    type EmblaOptionsType,
+    type EmblaCarouselType,
+  } from "embla-carousel";
+  import { addPrevNextBtnsClickHandlers } from "../scripts/carousel";
+  import Autoplay from "embla-carousel-autoplay";
+
+  const OPTIONS: EmblaOptionsType = { loop: true };
+
+  const emblaNode = document.querySelector(".embla") as HTMLElement;
+  const viewportNode = emblaNode.querySelector(
+    ".embla__viewport",
+  ) as HTMLElement;
+  const prevBtnNode = emblaNode.querySelector(
+    ".embla__button--prev",
+  ) as HTMLElement;
+  const nextBtnNode = emblaNode.querySelector(
+    ".embla__button--next",
+  ) as HTMLElement;
+
+  const emblaApi = EmblaCarousel(viewportNode, OPTIONS, [Autoplay()]);
+
+  const onNavButtonClick = (emblaApi: EmblaCarouselType): void => {
+    const autoplay = emblaApi?.plugins()?.autoplay;
+    if (!autoplay) return;
+
+    const resetOrStop =
+      autoplay.options.stopOnInteraction === false
+        ? autoplay.reset
+        : autoplay.stop;
+
+    resetOrStop();
+  };
+
+  const removePrevNextBtnsClickHandlers = addPrevNextBtnsClickHandlers(
+    emblaApi,
+    prevBtnNode,
+    nextBtnNode,
+    onNavButtonClick,
+  );
+
+  emblaApi.on("destroy", removePrevNextBtnsClickHandlers);
+</script>

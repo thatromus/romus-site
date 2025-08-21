@@ -8,19 +8,26 @@ import type { HTMLAttributes } from "astro/types";
  * Wrapper for button with accessibility for screen readers and keyboard navigation
  */
 
-type Props = HTMLAttributes<"button">;
-const { class: className, ...props } = Astro.props;
+type Props = HTMLAttributes<"button"> & {
+  direction: "left" | "right";
+};
+
+const { class: className, direction, ...props } = Astro.props;
 ---
 
 <button
   class:list={[
-    "relative cursor-pointer overflow-hidden bg-white px-5 py-2 text-center text-black duration-300 ease-out",
-    "before:absolute before:top-0 before:left-0 before:h-full before:w-0 before:bg-black",
+    "relative cursor-pointer touch-auto overflow-hidden bg-white px-5 py-2 text-center text-black duration-300 ease-out",
+    `before:absolute before:top-0 ${
+      direction === "left" ? "before:left-0" : "before:right-0"
+    } before:h-full before:w-0 before:bg-black`,
     "before:z-0 before:transition-all before:duration-300",
     "hover:before:w-full",
     "hover:text-white",
+
     className,
   ]}
+  {...props}
 >
   <span class="relative z-10"><slot /></span>
 </button>

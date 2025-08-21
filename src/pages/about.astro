@@ -1,5 +1,5 @@
 ---
-import About from "@layouts/About.astro";
+import AboutC from "@layouts/About.astro";
 import { getEntry, render } from "astro:content";
 
 const layout = await getEntry("about", "cc");
@@ -10,6 +10,6 @@ if (!layout) {
 const { Content } = await render(layout);
 ---
 
-<About {...layout.data}>
+<AboutC {...layout.data}>
   <Content />
-</About>
+</AboutC>
