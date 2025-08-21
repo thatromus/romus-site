@@ -11,7 +11,8 @@
       "@layouts/*": ["src/layouts/*"],
       "@content/*": ["src/content/*"],
       "@styles/*": ["src/styles/*"],
-      "@consts": ["src/consts.ts"]
+      "@consts": ["src/consts.ts"],
+      "@scripts": ["src/scripts/*"]
     }
   }
 }

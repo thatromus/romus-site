@@ -1,5 +1,4 @@
 ---
-import { SITE_TITLE } from "@consts";
 import HeaderLink from "@components/HeaderLink.astro";
 import Link from "@components/Link.astro";
 import ArtStationLogo from "@components/ArtStationLogo.astro";
@@ -13,7 +12,7 @@ import Logo from "@components/Logo.astro";
   <nav class="flex h-20 items-center justify-between">
     <!-- Лого -->
     <Link href="/" class="text-accent flex items-center text-2xl no-underline">
-      <Logo class="h-12 w-16" />
+      <Logo class="h-12 w-20" />
     </Link>
 
     <!-- Десктопные ссылки -->
@@ -57,9 +56,9 @@ import Logo from "@components/Logo.astro";
     </button>
 
     <!-- Навигация -->
-    <HeaderLink href="/">Main</HeaderLink>
-    <HeaderLink href="/blog">Portfolio</HeaderLink>
-    <HeaderLink href="/about">About me</HeaderLink>
+    <HeaderLink class="" href="/">Main</HeaderLink>
+    <HeaderLink class="font-rubik-mono" href="/blog">Portfolio</HeaderLink>
+    <HeaderLink class="font-rubik-mono" href="/about">About me</HeaderLink>
 
     <!-- Соцсети -->
     <div class="mt-auto flex items-center justify-center gap-6 py-4">
