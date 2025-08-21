@@ -10,12 +10,12 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   // For ghp
   ///
-  // site: "https://towinok.github.io",
-  // base: "/astro-blog-ssg",
+   site: "https://thatromus.github.io",
+   base: "/romus-site",
   ///
   // dev
-  site: "https://towinok.github.io",
-  base: "/s",
+  //site: "https://towinok.github.io",
+  //base: "/s",
   integrations: [mdx(), sitemap()],
 
   vite: {
