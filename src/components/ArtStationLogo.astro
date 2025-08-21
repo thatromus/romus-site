@@ -9,15 +9,13 @@ import Link from "@components/Link.astro";
  * ArtStation Logo absorber
  */
 
-type Props = HTMLAttributes<"svg"> & {
-  href: string;
-};
+type Props = HTMLAttributes<"svg">;
 
 const { class: className, href, ...props } = Astro.props;
 ---
 
-<Link
-  href={href}
+<a
+  href="https://www.artstation.com/thatromus"
   class="p-2 transition-transform duration-400 ease-in-out hover:scale-135 lg:p-4"
 >
   <svg
@@ -38,4 +36,4 @@ const { class: className, href, ...props } = Astro.props;
       d="M19.8105 13.4205L5.29451 38.608H34.3265L19.8105 13.4205Z"
       fill="currentColor"></path>
   </svg>
-</Link>
+</a>

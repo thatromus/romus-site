@@ -9,15 +9,13 @@ import Link from "@components/Link.astro";
  * Behance Logo absorber
  */
 
-type Props = HTMLAttributes<"svg"> & {
-  href: string;
-};
+type Props = HTMLAttributes<"svg">;
 
 const { class: className, href, ...props } = Astro.props;
 ---
 
-<Link
-  href={href}
+<a
+  href="https://www.behance.net/2cad3f59"
   class="p-2 transition-transform duration-400 ease-in-out hover:scale-135 lg:p-4"
 >
   <svg
@@ -42,4 +40,4 @@ const { class: className, href, ...props } = Astro.props;
       ></g
     ></svg
   >
-</Link>
+</a>
