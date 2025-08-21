@@ -34,7 +34,7 @@ const posts = (await getCollection("portfolio")).sort(
                 ]}
               >
                 <a
-                  href={`${import.meta.env.BASE_URL}/blog/${post.id}/`}
+                  href={`${import.meta.env.BASE_URL}/portfolio/${post.id}/`}
                   class="group block no-underline"
                 >
                   {post.data.heroImage && (
