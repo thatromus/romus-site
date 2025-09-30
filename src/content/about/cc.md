@@ -9,7 +9,9 @@ Greetings! I'm Roman "ThatRomus" Karimov, a Graphic Designer, Artist, and Musici
 My creative work spans several fields:
 
 3D Art
+
 Concept Art & Design (both traditional and digital)
+
 Music for video games and other media projects
 
 
