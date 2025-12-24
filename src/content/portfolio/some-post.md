@@ -1,10 +1,10 @@
 ---
-title: 'Some posts'
-description: 'Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.'
-pubDate: 'Jun 19 2024'
-# updatedDate: 'Aug 17 2025'
+title: 'Music'
+description: 'Basic overview on my music art.'
+pubDate: 'dec 24 2025'
+# updatedDate: 'dec 24 2025'
 # minor
-heroImage: "src/assets/Avatar.png"
+heroImage: "src/assets/blog-music.png"
 # Optional (priority)
 # images: [src/assets/both_hands.png, src/assets/right_hand.png]
 ---
