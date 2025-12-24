@@ -20,7 +20,7 @@ heroImage: "src/assets/blog-music.png"
 
 <div class="flex justify-center">
 <!-- Добавил элемент выше, чтобы штука ниже была по центру -->
-   <iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=2829739456/size=large/bgcol=333333/linkcol=e32c14/tracklist=false/transparent=true/" seamless><a href="https://thatromus.bandcamp.com/album/amnesia">Amnesia by ThatRomus</a></iframe>
+   <iframe style="border: 0; width: 350px; height: 786px;" src="https://bandcamp.com/EmbeddedPlayer/album=2829739456/size=large/bgcol=333333/linkcol=e32c14/transparent=true/" seamless><a href="https://thatromus.bandcamp.com/album/amnesia">Amnesia by ThatRomus</a></iframe>
 </div>
 
 # Listen here:
