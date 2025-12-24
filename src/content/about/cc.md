@@ -1,7 +1,7 @@
 ---
 title: 'About me'
 description: 'Something about me'
-skills: ["Blender", "Krita", "Adobe Photoshop", "Adboe Illustrator", "Adobe AfterEffects", "Adobe Premier Pro", "Unity", "Hammer Editor", "Figma", "FL Studio", "Limux MultiMedia Studio"]
+skills: ["Blender", "Krita", "Adobe Photoshop", "Adboe Illustrator", "Adobe AfterEffects", "Adobe Premier Pro", "Unity", "Hammer Editor", "Figma", "FL Studio", "Linux MultiMedia Studio"]
 ---
 
 Greetings! I'm Roman "ThatRomus" Karimov, a Graphic Designer, Artist, and Musician from Russia.
