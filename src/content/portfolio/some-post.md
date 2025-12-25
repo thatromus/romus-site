@@ -4,9 +4,9 @@ description: 'Basic overview on my music art.'
 pubDate: 'dec 24 2025'
 # updatedDate: 'dec 24 2025'
 # minor
-heroImage: "src/assets/blog-music.png"
+heroImage: "../../assets/blog-music.png"
 # Optional (priority)
-# images: [src/assets/both_hands.png, src/assets/right_hand.png]
+# images: [../../assets/both_hands.png, ../../assets/right_hand.png]
 ---
 
 # What I write

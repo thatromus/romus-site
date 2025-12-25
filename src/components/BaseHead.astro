@@ -10,9 +10,7 @@
  */
 import "@styles/global.css";
 import type { ImageMetadata } from "astro";
-import FallbackImage from "@assets/blog-placeholder-1.jpg";
-import { SITE_TITLE } from "@consts";
-
+import { SITE_TITLE, MAIN_PREVIEW } from "@consts";
 interface Props {
   title: string;
   description: string;
@@ -22,7 +20,7 @@ interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const base_path = import.meta.env.BASE_URL;
 
-const { title, description, image = FallbackImage } = Astro.props;
+const { title, description, image = MAIN_PREVIEW } = Astro.props;
 ---
 
 <!-- Global Metadata -->
