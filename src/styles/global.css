@@ -16,6 +16,10 @@
   --font-rubik-mono: "Rubik Mono One", monospace;
 }
 
+body {
+  width: 100%;
+}
+
 /* Embla */
 
 .embla {
