@@ -14,6 +14,19 @@ const portfolio = defineCollection({
     }),
 });
 
+const blog = defineCollection({
+  loader: glob({ base: "./src/content/blog", pattern: "**/*.{md,mdx}" }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      pubDate: z.coerce.date(),
+      updatedDate: z.coerce.date().optional(),
+      heroImage: image().optional(),
+      images: z.array(image().optional()).optional(),
+    }),
+});
+
 const about = defineCollection({
   loader: glob({ base: "./src/content/about", pattern: "**/*.{md,mdx}" }),
   schema: () =>
@@ -24,4 +37,4 @@ const about = defineCollection({
     }),
 });
 
-export const collections = { portfolio, about };
+export const collections = { portfolio, blog, about };
