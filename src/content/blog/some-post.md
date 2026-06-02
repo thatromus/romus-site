@@ -1,14 +1,18 @@
 ---
-title: 'Test'
-description: ''
-pubDate: 'dec 24 2025'
-# updatedDate: 'dec 24 2025'
+title: 'DND Wizard cosplay version 1'
+description: 'first iteration of my Wizard cosplay'
+pubDate: 'june 2 2026'
+# updatedDate: 'june 2 2026'
 # minor
-heroImage: "../../assets/blog-placeholder-4.jpg"
+heroImage: "../../assets/blog-cospay_1.jpg"
 # Optional (priority)
 # images: [../../assets/both_hands.png, ../../assets/right_hand.png]
 ---
 
-# Test
+# How it looks like
+
+![Alt text]("../../assets/Wiz1.jpg")
+
+
 
 ---
