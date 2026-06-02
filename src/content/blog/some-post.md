@@ -13,6 +13,7 @@ heroImage: "../../assets/blog-cospay_1.png"
 
 ![Alt text]("../../assets/Wiz1.jpg")
 
+![blog placeholder](../../assets/Wiz1.jpg)
 
 
 ---
