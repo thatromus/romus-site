@@ -1,0 +1,26 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"svg">;
+
+const { class: className, ...props } = Astro.props;
+---
+
+<a
+  href="https://music.yandex.ru/artist/24857234?utm_source=desktop&utm_medium=copy_link"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="p-2 transition-transform duration-400 ease-in-out hover:scale-135 lg:p-4"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    class:list={[{ className }, "text-accent size-5"]}
+    fill="currentColor"
+    aria-hidden="true"
+    {...props}
+  >
+    <title>Yandex Music</title>
+    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 18.5c-3.59 0-6.5-2.91-6.5-6.5s2.91-6.5 6.5-6.5 6.5 2.91 6.5 6.5-2.91 6.5-6.5 6.5zM12 7c-2.761 0-5 2.239-5 5s2.239 5 5 5 5-2.239 5-5-2.239-5-5-5zm0 8c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/>
+  </svg>
+</a>
