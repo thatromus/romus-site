@@ -11,9 +11,9 @@ heroImage: "../../assets/blog-cospay_1.png"
 
 # How it looks like
 
-![Alt text]("../../assets/Wiz1.jpg")
+![Alt text]("../../assets/Wiz2.jpg")
 
-![blog placeholder](../../assets/Wiz1.jpg)
+![blog placeholder](../../assets/Wiz2.jpg)
 
 
 ---
