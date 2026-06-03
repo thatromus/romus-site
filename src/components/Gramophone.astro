@@ -5,8 +5,8 @@ import base2 from "../assets/record/base2.png";
 import disc from "../assets/record/disc.png";
 
 // Настрой центр вращения
-const centerX = "50.9%"; 
-const centerY = "50.5%";
+const centerX = "50.0%"; 
+const centerY = "50.0%";
 
 // Настрой положение подложки base - это пластинка
 const baseX = "0px";
@@ -23,7 +23,7 @@ const gramophoneX = "200px";
     style={`transform: translate(${baseX}, ${baseY});`}
   />  
   <div class="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
-    <div class="music-disc-container w-[100%] aspect-square relative">
+    <div class="music-disc-container w-[67%] aspect-square relative">
       <Image 
         src={disc} 
         alt="Gramophone Disc" 
