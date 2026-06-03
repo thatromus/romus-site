@@ -1,6 +1,6 @@
 let lastHoverTime = 0;
 let lastHoveredElement: HTMLElement | null = null;
-const HOVER_THROTTLE = 300; // Задержка, если нужно - можешь поднять или опустить
+const HOVER_THROTTLE = 50; // Задержка, если нужно - можешь поднять или опустить
 
 export const playSound = (soundName: 'klick' | 'hover' | 'portfolio_hover') => {
   const base = import.meta.env.BASE_URL.replace(/\/$/, '');
