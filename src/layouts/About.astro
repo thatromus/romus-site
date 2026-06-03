@@ -41,7 +41,7 @@ const { skills, title, description } = Astro.props;
     </main>
     <div
       class="portfolio-animation group flex w-full transform flex-col items-center justify-center py-10"
-      onmouseenter="import('/src/scripts/sounds.ts').then(m => m.playSound('portfolio_hover'))"
+      onmouseenter="window.playPortfolioHover && window.playPortfolioHover()"
     >
       <Link href="/portfolio">
         <Button

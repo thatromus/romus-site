@@ -12,6 +12,10 @@ let isInitialized = false;
 export const initGlobalSounds = () => {
   if (typeof window === 'undefined' || isInitialized) return;
   isInitialized = true;
+
+  (window as any).playPortfolioHover = () => playSound('portfolio_hover');
+
+  // Клик по кнопкам и ссылкам
   document.addEventListener('mousedown', (e) => {
     const target = e.target as HTMLElement;
     if (target.closest('button') || target.closest('a') || target.closest('li')) {
