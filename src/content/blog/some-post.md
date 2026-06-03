@@ -53,8 +53,6 @@ I plan to wear this to the upcoming cosplay and fantasy festival — Epic Con Ru
 
 My next post will be from there.
 
-Thats it, fellas.
-
----
+Thats it.
 
 ---

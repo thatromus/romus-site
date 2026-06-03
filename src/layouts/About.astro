@@ -11,6 +11,7 @@ import BothHands from "@assets/both_hands.png";
 type Props = CollectionEntry<"about">["data"];
 
 const { skills, title, description } = Astro.props;
+import MusicPlayer from "@components/MusicPlayer.astro";
 ---
 
 <html lang="en">
@@ -96,5 +97,6 @@ const { skills, title, description } = Astro.props;
     <BareCode
       class="text-accent absolute bottom-0 scale-y-300 mask-t-from-red-200 mask-t-to-90% mask-r-to-130% mask-l-to-130% lg:scale-100"
     />
+    <MusicPlayer />
   </body>
 </html>

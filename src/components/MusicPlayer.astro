@@ -1,0 +1,161 @@
+---
+import { MUSIC_CONFIG } from "../scripts/musicConfig";
+
+const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+const configPath = pathname.replace(base, "") || "/";
+const track = MUSIC_CONFIG[configPath] || MUSIC_CONFIG["default"];
+
+const trackUrl = `${base}${track.url}`;
+---
+<div
+  id="music-player"
+  class="fixed bottom-8 left-8 z-50 flex items-center gap-4 bg-white p-2 pr-6 text-black shadow-2xl transition-all duration-300 hover:scale-105"
+>
+  <button
+    id="play-pause-btn"
+    class="flex h-12 w-12 items-center justify-center bg-black text-white transition-colors hover:bg-accent"
+    aria-label="Play music"
+  >
+    <svg
+      id="play-icon"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      class="size-6"
+    >
+      <path d="M8 5.14v14l11-7-11-7z"></path>
+    </svg>
+    <svg
+      id="pause-icon"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      class="hidden size-6"
+    >
+      <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path>
+    </svg>
+  </button>
+
+  <div class="flex flex-col gap-1">
+    <span id="music-status" class="text-[10px] font-bold uppercase tracking-widest opacity-50"
+      >Music: OFF</span
+    >
+    <input
+      type="range"
+      id="volume-slider"
+      min="0"
+      max="1"
+      step="0.01"
+      value="0.5"
+      class="h-1 w-24 cursor-pointer appearance-none bg-black/20 accent-black"
+    />
+  </div>
+
+  <audio id="bg-audio" loop>
+    <source src={trackUrl} type="audio/mpeg" />
+  </audio>
+</div>
+
+<script>
+  const player = document.getElementById("music-player");
+  const btn = document.getElementById("play-pause-btn");
+  const audio = document.getElementById("bg-audio") as HTMLAudioElement;
+  const playIcon = document.getElementById("play-icon");
+  const pauseIcon = document.getElementById("pause-icon");
+  const statusText = document.getElementById("music-status");
+  const volumeSlider = document.getElementById("volume-slider") as HTMLInputElement;
+
+  let isPlaying = false;
+
+  const savedState = localStorage.getItem("music-playing");
+  const savedTime = localStorage.getItem("music-time");
+  const savedVolume = localStorage.getItem("music-volume");
+
+  if (savedTime) audio.currentTime = parseFloat(savedTime);
+  if (savedVolume) {
+    audio.volume = parseFloat(savedVolume);
+    volumeSlider.value = savedVolume;
+  } else {
+    audio.volume = 0.5;
+  }
+
+  function updateUI() {
+    if (isPlaying) {
+      playIcon?.classList.add("hidden");
+      pauseIcon?.classList.remove("hidden");
+      if (statusText) statusText.innerText = "Music: ON";
+    } else {
+      playIcon?.classList.remove("hidden");
+      pauseIcon?.classList.add("hidden");
+      if (statusText) statusText.innerText = "Music: OFF";
+    }
+  }
+
+  function toggleMusic(forceState?: boolean) {
+    const newState = forceState !== undefined ? forceState : !isPlaying;
+    
+    if (newState) {
+      audio.play().then(() => {
+        isPlaying = true;
+        localStorage.setItem("music-playing", "true");
+        updateUI();
+      }).catch((e) => console.log("Autoplay blocked or error:", e));
+    } else {
+      audio.pause();
+      isPlaying = false;
+      localStorage.setItem("music-playing", "false");
+      updateUI();
+    }
+  }
+
+  btn?.addEventListener("click", () => toggleMusic());
+
+  volumeSlider?.addEventListener("input", (e) => {
+    const val = (e.target as HTMLInputElement).value;
+    audio.volume = parseFloat(val);
+    localStorage.setItem("music-volume", val);
+  });
+
+  window.addEventListener("beforeunload", () => {
+    localStorage.setItem("music-time", audio.currentTime.toString());
+  });
+
+  const shouldPlay = savedState === null || savedState === "true";
+
+  if (shouldPlay) {
+    audio.play().then(() => {
+      isPlaying = true;
+      updateUI();
+    }).catch(() => {
+      const startOnInteraction = () => {
+        toggleMusic(true);
+        document.removeEventListener("mousedown", startOnInteraction);
+        document.removeEventListener("keydown", startOnInteraction);
+        document.removeEventListener("touchstart", startOnInteraction);
+      };
+      document.addEventListener("mousedown", startOnInteraction);
+      document.addEventListener("keydown", startOnInteraction);
+      document.addEventListener("touchstart", startOnInteraction);
+    });
+  } else {
+    updateUI();
+  }
+</script>
+<style>
+  #music-player {
+    clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+  }
+  #volume-slider::-webkit-slider-runnable-track {
+    background: rgba(0, 0, 0, 0.1);
+    height: 4px;
+  }
+  #volume-slider::-webkit-slider-thumb {
+    appearance: none;
+    height: 12px;
+    width: 4px;
+    background: black;
+    margin-top: -4px;
+  }
+</style>

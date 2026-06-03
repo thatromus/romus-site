@@ -1,12 +1,16 @@
+import { SOUND_EFFECTS_VOLUME } from "./musicConfig";
+
 let lastHoverTime = 0;
 let lastHoveredElement: HTMLElement | null = null;
-const HOVER_THROTTLE = 50; // Задержка, если нужно - можешь поднять или опустить
+const HOVER_THROTTLE = 300; // Задержка в мс между звуками наведения
 
 export const playSound = (soundName: 'klick' | 'hover' | 'portfolio_hover') => {
   const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   const audio = new Audio(`${base}/sound/${soundName}.mp3`);
+  audio.volume = SOUND_EFFECTS_VOLUME;
   audio.play().catch(e => console.error("Error playing sound:", e));
 };
+
 let isInitialized = false;
 
 export const initGlobalSounds = () => {
@@ -15,7 +19,6 @@ export const initGlobalSounds = () => {
 
   (window as any).playPortfolioHover = () => playSound('portfolio_hover');
 
-  // Клик по кнопкам и ссылкам
   document.addEventListener('mousedown', (e) => {
     const target = e.target as HTMLElement;
     if (target.closest('button') || target.closest('a') || target.closest('li')) {
