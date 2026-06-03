@@ -7,11 +7,12 @@ import Button from "@components/Button.astro";
 import Link from "@components/Link.astro";
 import { Image } from "astro:assets";
 import BothHands from "@assets/both_hands.png";
+import Gramophone from "@components/Gramophone.astro";
+import MusicPlayer from "@components/MusicPlayer.astro";
 
 type Props = CollectionEntry<"about">["data"];
 
 const { skills, title, description } = Astro.props;
-import MusicPlayer from "@components/MusicPlayer.astro";
 ---
 
 <html lang="en">
@@ -33,6 +34,10 @@ import MusicPlayer from "@components/MusicPlayer.astro";
           <slot />
         </div>
 
+        <div class="absolute top-32 right-70 hidden xl:block pointer-events-none">
+          <Gramophone />
+        </div>
+
         <div>
           <div class="flex w-full flex-wrap justify-evenly gap-2">
             {skills.map((skill) => <Button direction="left">{skill}</Button>)}
@@ -40,6 +45,7 @@ import MusicPlayer from "@components/MusicPlayer.astro";
         </div>
       </article>
     </main>
+
     <div
       class="portfolio-animation group flex w-full transform flex-col items-center justify-center py-10"
       onmouseenter="window.playPortfolioHover && window.playPortfolioHover()"

@@ -2,7 +2,7 @@ import { SOUND_EFFECTS_VOLUME } from "./musicConfig";
 
 let lastHoverTime = 0;
 let lastHoveredElement: HTMLElement | null = null;
-const HOVER_THROTTLE = 300; // Задержка в мс между звуками наведения
+const HOVER_THROTTLE = 50; // Задержка в мс между звуками наведения
 
 export const playSound = (soundName: 'klick' | 'hover' | 'portfolio_hover') => {
   const base = import.meta.env.BASE_URL.replace(/\/$/, '');

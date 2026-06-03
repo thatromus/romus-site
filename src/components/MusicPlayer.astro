@@ -100,16 +100,17 @@ const trackUrl = `${base}${track.url}`;
       audio.play().then(() => {
         isPlaying = true;
         localStorage.setItem("music-playing", "true");
+        window.dispatchEvent(new Event('music-state-changed'));
         updateUI();
       }).catch((e) => console.log("Autoplay blocked or error:", e));
     } else {
       audio.pause();
       isPlaying = false;
       localStorage.setItem("music-playing", "false");
+      window.dispatchEvent(new Event('music-state-changed'));
       updateUI();
     }
   }
-
   btn?.addEventListener("click", () => toggleMusic());
 
   volumeSlider?.addEventListener("input", (e) => {
