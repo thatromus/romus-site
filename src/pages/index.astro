@@ -18,6 +18,10 @@ import Link from "@components/Link.astro";
     <main
       class="relative flex h-screen max-h-screen w-screen max-w-screen overflow-clip py-20 xl:py-0"
     >
+      <script>
+        import { initGlobalSounds } from "../scripts/sounds";
+        initGlobalSounds();
+      </script>
       <Picture
         loading="eager"
         formats={["webp"]}

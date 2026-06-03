@@ -19,6 +19,10 @@ const posts = (await getCollection("blog")).sort(
   </head>
   <body class="relative min-h-screen bg-black">
     <Header />
+    <script>
+      import { initGlobalSounds } from "../../scripts/sounds";
+      initGlobalSounds();
+    </script>
     <main class="mx-auto max-w-5xl lg:pb-12">
       <section>
         <ul class="flex list-none flex-wrap gap-20 p-0 text-white md:gap-8">
