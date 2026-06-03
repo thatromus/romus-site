@@ -3,10 +3,10 @@ let lastHoveredElement: HTMLElement | null = null;
 const HOVER_THROTTLE = 300; // Задержка, если нужно - можешь поднять или опустить
 
 export const playSound = (soundName: 'klick' | 'hover' | 'portfolio_hover') => {
-  const audio = new Audio(`/sound/${soundName}.mp3`);
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+  const audio = new Audio(`${base}/sound/${soundName}.mp3`);
   audio.play().catch(e => console.error("Error playing sound:", e));
 };
-
 let isInitialized = false;
 
 export const initGlobalSounds = () => {
